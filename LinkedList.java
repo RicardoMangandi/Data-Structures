@@ -2,13 +2,17 @@ package com.company;
 
 import java.util.Scanner;
 
+
+//The Linked List is implemented as a doubly linked list with a previous and next pointers
+//All index begin counting at zero
+
 class LinkedList {
 
     Node head;
     Node tail;
     int sizeOfList = 0;
 
-    public static class Node
+    static class Node
     {
         Node prev;
         Node next;
@@ -52,24 +56,19 @@ class LinkedList {
                 int index = sc.nextInt();
                 System.out.println("Give me an integer value to insert");
                 int val = sc.nextInt();
-
                 linkedList = insertAtIndex(val,index,linkedList);
             }
 
 
             if(loop == 3)
             {
-
                 System.out.println("Give me a value to delete");
                 int val = sc.nextInt();
-
                 linkedList = deleteValue(val,linkedList);
-
             }
 
             if(loop == 4)
             {
-
                 System.out.println("Delete value at index, give us an index");
                 int index = sc.nextInt();
                 linkedList = deleteValueAtIndex(index,linkedList);
@@ -77,15 +76,12 @@ class LinkedList {
 
             if(loop == 5)
             {
-
                 printCurrentList(linkedList);
             }
-
-
         }
-
         System.out.println(linkedList.sizeOfList);
         Node toPrint = linkedList.head;
+
         while(toPrint != null)
         {
             System.out.print(toPrint.val + " ");
@@ -141,30 +137,26 @@ class LinkedList {
                 }
 
                 //else we need to take care of who the tail will be
-                else if(traverse.val == value)
-                {
+                else if (traverse.val == value) {
                     System.out.println("Found at index: " + counter);
                     list.tail = traverse.prev;
                     list.tail.next = null;
                     list.sizeOfList--;
 
-                   traverse.next = null;
-                   traverse.prev = null;
+                    traverse.next = null;
+                    traverse.prev = null;
 
                     return list;
-
                 }
 
                 traverse = traverse.next;
                 counter++;
-
             }
 
             if(counter == list.sizeOfList)
             {
                 System.out.println("Index out of bound");
             }
-
         }
 
         return list;
@@ -177,6 +169,7 @@ class LinkedList {
         if(index == 0)
         {
             list.head = list.head.next;
+            list.head.prev = null; //new addition
             list.sizeOfList--;
             return list;
         }
@@ -205,19 +198,13 @@ class LinkedList {
         //deal with deleting the tail
         else if(index == list.sizeOfList - 1)
         {
-
-
             list.tail = list.tail.prev;
             list.tail.next = null;
             list.sizeOfList--;
-
-
-
         }
 
         else if(index >= list.sizeOfList)
         {
-
             System.out.println("Index out of bound");
         }
 
@@ -305,8 +292,6 @@ class LinkedList {
         System.out.println("3. Delete a node with specified value");
         System.out.println("4. Delete a node at specified index");
         System.out.println("5. Print current list");
-
-
     }
 
 
