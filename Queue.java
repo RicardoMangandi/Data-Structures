@@ -26,6 +26,9 @@ public class Queue {
 
         Queue queue = new Queue();
 
+
+        dequeue(queue);
+        /*
         //dequeue(queue);
         enqueue(queue,70);
         printCurrentQueue(queue);
@@ -52,6 +55,7 @@ public class Queue {
         dequeue(queue); //dequeue 72
         printCurrentQueue(queue);
         dequeue(queue); //dequeue 73
+        */
 
         peek(queue); //peek is 74
     }

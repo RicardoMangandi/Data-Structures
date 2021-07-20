@@ -1,6 +1,6 @@
 package com.company;
 
-public class Stack {
+public class Stack<N> {
 
 
     Node top = null; //head

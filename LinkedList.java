@@ -36,7 +36,26 @@ class LinkedList {
         LinkedList linkedList = new LinkedList();
         int loop = 1;
 
+       // insertAtEnd(1,linkedList);
+/*
+        insertAtEnd(7,linkedList);
+        insertAtEnd(7,linkedList);
+        insertAtEnd(7,linkedList);
+        insertAtEnd(7,linkedList);
+        insertAtEnd(7,linkedList);
+        insertAtEnd(7,linkedList);
+        insertAtEnd(7,linkedList);
+*/
 
+
+        insertAtEnd(1,linkedList);
+        insertAtEnd(2,linkedList);
+        insertAtEnd(6,linkedList);
+        insertAtEnd(3,linkedList);
+        insertAtEnd(4,linkedList);
+        insertAtEnd(5,linkedList);
+        insertAtEnd(6,linkedList);
+    /*
         while(loop > 0)
         {
             menu();
@@ -78,8 +97,11 @@ class LinkedList {
             {
                 printCurrentList(linkedList);
             }
-        }
-        System.out.println(linkedList.sizeOfList);
+        }*/
+
+        //linkedList.head = removeElements(linkedList.head,7);
+        linkedList.head = removeElements(linkedList.head,6);
+        //System.out.println(linkedList.sizeOfList);
         Node toPrint = linkedList.head;
 
         while(toPrint != null)
@@ -87,6 +109,8 @@ class LinkedList {
             System.out.print(toPrint.val + " ");
             toPrint = toPrint.next;
         }
+
+
     }
 
 
@@ -103,7 +127,21 @@ class LinkedList {
         System.out.println();
     }
 
+    public static Node removeElements(Node head, int val) {
 
+        while (head != null && head.val == val)
+            head = head.next;
+
+        Node curr = head;
+        while (curr != null && curr.next != null) {
+            if (curr.next.val == val)
+                curr.next = curr.next.next;
+
+            else
+                curr = curr.next;
+        }
+                return head;
+    }
 
     public static LinkedList deleteValue(int value,LinkedList list)
     {
